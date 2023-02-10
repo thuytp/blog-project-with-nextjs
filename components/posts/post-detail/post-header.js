@@ -1,5 +1,5 @@
 import Image from "next/image";
-import classes from "./post-header.module,css";
+import classes from "./post-header.module.css";
 function PostHeader(props) {
   const { title, image } = props;
   return (
@@ -9,3 +9,5 @@ function PostHeader(props) {
     </header>
   );
 }
+
+export default PostHeader;
