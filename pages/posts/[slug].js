@@ -1,10 +1,18 @@
+import Head from "next/head";
 import PostContent from "../../components/posts/post-detail/post-content";
 import { getPostData, getPostsFiles } from "../../lib/post-util";
 
 function PostDetailPage(props) {
   const { posts } = props;
-  console.log(posts);
-  return <PostContent post={props.post} />;
+  return (
+    <>
+      <Head>
+        <title>{props.post.title}</title>
+        <meta name="description" content={props.post.excerpt} />
+      </Head>
+      <PostContent post={props.post} />
+    </>
+  );
 }
 
 export function getStaticProps(context) {

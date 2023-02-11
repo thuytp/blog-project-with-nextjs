@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import classes from "./contact-form.module.css";
 import Notification from "../ui/notification";
+import Portal from "../HOC/portal";
 
 function ContactForm() {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -53,7 +54,7 @@ function ContactForm() {
       setRequestStatus("success");
       setEnteredEmail("");
       setEnteredMessage("");
-      setEnteredEmail("");
+      setEnteredName("");
     } catch (error) {
       setRequestStatus("error");
       setRequestError(error.message);
@@ -126,11 +127,13 @@ function ContactForm() {
         </div>
       </form>
       {notification && (
-        <Notification
-          status={notification.status}
-          title={notification.title}
-          message={notification.message}
-        />
+        <Portal>
+          <Notification
+            status={notification.status}
+            title={notification.title}
+            message={notification.message}
+          />
+        </Portal>
       )}
     </section>
   );
