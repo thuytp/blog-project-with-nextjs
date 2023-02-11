@@ -18,7 +18,7 @@ function PostContent(props) {
           <div className={classes.image}>
             <Image
               src={`/images/posts/${post.slug}/${image.properties.src}`}
-              alt={image.alt}
+              alt={image.properties.alt}
               width={600}
               height={300}
             />
@@ -28,10 +28,10 @@ function PostContent(props) {
       return <p>{paragraph.children}</p>;
     },
     code(code) {
-      const { language, value } = code;
+      const { language } = code;
       return (
         <SyntaxHighlighter language={language} style={atomDark}>
-          {value}
+          {code.children[0]}
         </SyntaxHighlighter>
       );
     },
